@@ -409,7 +409,7 @@
 .main-container .section-header-13, .main-container .stm-container {
   position: relative;
   width: 1180px;
-  margin-left: 130px;
+  margin: 0 auto;
   overflow: hidden;
 }
 .main-container .stm-container {
@@ -508,7 +508,7 @@
   position: relative;
   width: 1182px;
   height: 470px;
-  margin: 0 0 0 129px;
+  margin: 0px auto;
   z-index: 300;
 }
 .main-container .frame-a {
