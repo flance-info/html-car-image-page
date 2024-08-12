@@ -1233,15 +1233,7 @@
 
 
   .row {
-	display: flex;
-	align-items: flex-start;
-	align-self: stretch;
-	flex-wrap: nowrap;
-	flex-shrink: 0;
-	gap: 32px;
-	position: relative;
-	min-width: 0;
-	z-index: 49;
+
   }
 
   .card {
@@ -1601,15 +1593,21 @@
   }
 
   .image-8c {
-	position: absolute;
-	width: 1771px;
-	height: 944px;
-	top: -146px;
-	left: -166px;
-	background: url(./assets/images/c46432fcf8dd3b614ee8444a961a001af191c2e1.png) no-repeat center;
-	background-size: cover;
-	opacity: 0.3;
-	z-index: 47;
+	position: relative;  // Ensure the container is positioned
+    z-index: 0;
+
+    &::before {
+        content: "";
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+     background: url(./assets/images/c46432fcf8dd3b614ee8444a961a001af191c2e1.png) no-repeat center;
+        background-size: cover;
+        opacity: 0.3;
+        z-index: -1;  // Ensure the background is behind the content
+    }
   }
 
 
@@ -3397,13 +3395,13 @@
 	}
 
 	.card-de {
-	  height: 400px;
+	  height: 520px;
 	  background: #ffffff;
 	  border: 1px solid #e1dee9;
 	  z-index: 130;
 	  box-shadow: 0 4px 12px 0 rgba(0, 0, 0, 0.08);
 	  margin-top: 50px;
-	  width: 100%;
+	  width: 95%;
 	}
   }
 
@@ -3438,3 +3436,27 @@
 	}
   }
 }
+
+.main-container {
+  .row {
+
+
+    // Responsive design
+    @media (max-width: 1024px) {
+      gap: 24px; // Reduce gap between items on smaller screens
+    }
+
+    @media (max-width: 768px) {
+      flex-direction: column; // Stack items vertically on small screens
+      align-items: center;    // Center items in the row
+      gap: 16px;              // Further reduce gap
+    }
+
+    @media (max-width: 480px) {
+      gap: 12px;              // Reduce gap on very small screens
+      padding: 0 20px;        // Add padding to ensure items aren't flush against the edge
+      width: 100%;            // Ensure full width utilization
+    }
+  }
+}
+
